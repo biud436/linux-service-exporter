@@ -13,5 +13,6 @@ To create a service file, try to run this tool at the following steps on your te
 sudo node ./src/index.js --desc="Start my server" \ 
     --requires="Requires=After=mysql.service" \ 
     --cmd="node /home/ubuntu/badge-server/src/index.js" \ 
-    --identifier="badge-server"
+    --identifier="badge-server" \ 
+    --file="badge-server"
 ```
