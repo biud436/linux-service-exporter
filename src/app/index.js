@@ -2,10 +2,16 @@ const cp = require("child_process");
 const {promisify} = require("util");
 const spawn = promisify(cp.spawn);
 
-export class App {
+import {EventEmitter} from "events";
+
+export class App extends EventEmitter {
     
     constructor() {
+        super();
 
+        this.on("build", (filename) => {
+            this.build(filename);
+        });
     }
 
     async build(filename) {
@@ -26,7 +32,8 @@ export class App {
         const args = argv.slice(1);
 
         return spawn(execFile, args, {
-            shell: true
+            shell: true,
+            cwd: `/etc/systemd/system/`
         });
     }
 }

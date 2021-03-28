@@ -3,13 +3,6 @@ class Service {
 
     constructor(config, onCallback) {
 
-        // {
-        //     desc: "",
-        //     requires: "Requires=After=my:sql.service",
-        //     cmd: "",
-        //     identifier: ""
-        // }
-
         onCallback(this.exec(config));
     }
 
