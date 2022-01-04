@@ -56,7 +56,7 @@ if (argv.q) {
     });
 }
 
-function createServiceFile(data) {
+function createServiceFile(data: any) {
   /**
    * @type {String}
    */

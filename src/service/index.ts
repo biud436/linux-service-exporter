@@ -1,21 +1,17 @@
-
 class Service {
+  constructor(config: any, onCallback: any) {
+    onCallback(this.exec(config));
+  }
 
-    constructor(config, onCallback) {
+  exec({ desc, cmd, requires, identifier }: any) {
+    /**
+     * /etc/systemd/system/
+     */
 
-        onCallback(this.exec(config));
-    }
-
-    exec({desc, cmd, requires ,identifier}) {
-        /**
-         * /etc/systemd/system/
-         */
-
-        return `
+    return `
         [Unit]
         Description=${desc}
         ${requires}
-        
         
         [Service]
         ExecStart=${cmd}
@@ -28,9 +24,8 @@ class Service {
         
         [Install]
         WantedBy=multi-user.target
-        `        
-    }
-
+        `;
+  }
 }
 
-export {Service};
+export { Service };
